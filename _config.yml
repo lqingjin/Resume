@@ -1,10 +1,10 @@
-title: 'My online resume' # title in broswer
-publicPath: '/'
-resumePath: './markdown/resume-template.md'
+title: 'lqingjin - online resume' # title in broswer
+publicPath: '/Resume/'
+resumePath: './markdown/resume.md'
 showHeader: true
 headerInfo:
   # photo: 'https://avatars1.githubusercontent.com/u/22113206?s=460&v=4'
-  photo: './markdown/avatar.jpeg'
-  name: 'Liu Qingjin'
+  photo: './markdown/qingjin.jpg'
+  name: 'lqingjin'
   phone: '182****3151'
   email: '257922491@qq.com'
