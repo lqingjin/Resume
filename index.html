@@ -6,22 +6,20 @@
   <title>刘庆锦 - 个人简历</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Tailwind配置 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#165DFF',
-            secondary: '#FF7D00',
-            dark: '#1D2939',
-            light: '#F9FAFB',
-            muted: '#667085'
+            primary: '#FF6B35',
+            secondary: '#2E4057',
+            accent: '#F7C548',
+            light: '#F8F9FA',
+            dark: '#212529'
           },
           fontFamily: {
             inter: ['Inter', 'sans-serif'],
@@ -36,625 +34,531 @@
       .text-shadow {
         text-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
-      .transition-custom {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      .border-dash {
+        border-style: dashed;
       }
       .card-hover {
-        transform: translateY(0);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .photo-container {
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+      }
+      .photo-container:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
       }
     }
   </style>
 </head>
-<body class="font-inter bg-gray-50 text-gray-800">
-  <!-- 导航栏 -->
-  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm z-50 transition-all duration-300 shadow-sm">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center">
-          <a href="#hero" class="text-primary font-bold text-xl tracking-tight">刘庆锦 | 电商文案策划</a>
-        </div>
-        <div class="hidden md:block">
-          <div class="flex items-center space-x-8">
-            <a href="#about" class="text-gray-600 hover:text-primary transition-custom">关于我</a>
-            <a href="#skills" class="text-gray-600 hover:text-primary transition-custom">技能</a>
-            <a href="#experience" class="text-gray-600 hover:text-primary transition-custom">经验</a>
-            <a href="#projects" class="text-gray-600 hover:text-primary transition-custom">案例</a>
-            <a href="#contact" class="text-gray-600 hover:text-primary transition-custom">联系我</a>
-          </div>
-        </div>
-        <div class="md:hidden">
-          <button id="menu-toggle" class="text-gray-600 hover:text-primary">
-            <i class="fa fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- 移动端菜单 -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-      <div class="container mx-auto px-4 py-3 space-y-2">
-        <a href="#about" class="block py-2 text-gray-600 hover:text-primary transition-custom">关于我</a>
-        <a href="#skills" class="block py-2 text-gray-600 hover:text-primary transition-custom">技能</a>
-        <a href="#experience" class="block py-2 text-gray-600 hover:text-primary transition-custom">经验</a>
-        <a href="#projects" class="block py-2 text-gray-600 hover:text-primary transition-custom">案例</a>
-        <a href="#contact" class="block py-2 text-gray-600 hover:text-primary transition-custom">联系我</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 英雄区域 -->
-  <section id="hero" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-blue-50 to-indigo-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-4">
-            用文字<span class="text-primary">驱动销售</span><br>
-            电商文案策划师
-          </h1>
-          <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
-            5年电商文案策划经验，擅长将产品卖点转化为消费者语言，助力品牌提升转化率与复购率。
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-custom shadow-lg shadow-primary/20">
-              联系我
-            </a>
-            <a href="#projects" class="bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-lg font-medium transition-custom">
-              查看案例
-            </a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-gradient-to-r from-primary to-indigo-400 rounded-full blur-xl opacity-20"></div>
-            <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden w-64 h-64 md:w-80 md:h-80">
-              <img src="https://picsum.photos/id/1005/600/600" alt="张明的照片" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p class="text-white font-medium">专注电商文案策划</p>
-              </div>
+<body class="font-inter bg-gray-50 text-dark">
+  <div class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden my-8 md:my-12">
+    <!-- 头部区域 -->
+    <header class="bg-gradient-to-r from-secondary to-dark text-white p-6 md:p-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="flex flex-col md:flex-row gap-6 md:items-end">
+          <!-- 个人照片 -->
+          <div class="photo-container relative">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <img 
+                src="https://picsum.photos/seed/linyue/400/400" 
+                alt="刘庆锦照片" 
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+              >
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 关于我 -->
-  <section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">关于我</h2>
-        <div class="w-20 h-1 bg-primary mx-auto"></div>
-      </div>
-      
-      <div class="max-w-3xl mx-auto">
-        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-          我是一名拥有4年经验的电商文案策划专员，曾服务于多家知名电商平台和品牌方，从品牌故事构建到单品详情页撰写，再到营销活动策划，积累了丰富的实战经验。
-        </p>
-        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-          我的核心优势在于能够深入理解产品特性与目标用户需求，用精准且富有感染力的文字打动消费者，直接提升产品转化率。我擅长数据分析，能根据数据反馈持续优化文案，实现"用数据说话"的文案效果。
-        </p>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          除了文案撰写，我还熟悉电商平台规则与营销玩法，能将文案策略与平台活动完美结合，为品牌创造更大价值。
-        </p>
-        
-        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="text-center p-4 bg-gray-50 rounded-lg">
-            <div class="text-3xl font-bold text-primary mb-2">5+</div>
-            <div class="text-gray-600">工作年限</div>
-          </div>
-          <div class="text-center p-4 bg-gray-50 rounded-lg">
-            <div class="text-3xl font-bold text-primary mb-2">200+</div>
-            <div class="text-gray-600">成功案例</div>
-          </div>
-          <div class="text-center p-4 bg-gray-50 rounded-lg">
-            <div class="text-3xl font-bold text-primary mb-2">30+</div>
-            <div class="text-gray-600">合作品牌</div>
-          </div>
-          <div class="text-center p-4 bg-gray-50 rounded-lg">
-            <div class="text-3xl font-bold text-primary mb-2">150%</div>
-            <div class="text-gray-600">平均转化率提升</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 技能展示 -->
-  <section id="skills" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">专业技能</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          多年电商文案策划经验，练就了全面的专业技能，能够胜任电商全链路的文案需求
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- 技能卡片1 -->
-        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-            <i class="fa fa-file-text-o text-2xl text-primary"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">文案撰写</h3>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 产品详情页文案</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 短视频脚本创作</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 品牌故事撰写</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 营销活动文案</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 社交媒体文案</li>
-          </ul>
-        </div>
-        
-        <!-- 技能卡片2 -->
-        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-            <i class="fa fa-line-chart text-2xl text-primary"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">数据分析</h3>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 转化率分析</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 文案效果评估</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 用户画像分析</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> A/B测试设计</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 竞品分析</li>
-          </ul>
-        </div>
-        
-        <!-- 技能卡片3 -->
-        <div class="bg-white rounded-xl shadow-md p-6 card-hover">
-          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-            <i class="fa fa-lightbulb-o text-2xl text-primary"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">策略策划</h3>
-          <ul class="space-y-2 text-gray-600">
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 营销活动策划</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 内容营销策略</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 品牌定位文案</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 节日营销方案</li>
-            <li class="flex items-center"><i class="fa fa-check text-green-500 mr-2"></i> 电商大促策划</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- 技能熟练度图表 -->
-      <div class="mt-16 bg-white p-6 rounded-xl shadow-md">
-        <h3 class="text-xl font-bold mb-6 text-center">专业技能熟练度</h3>
-        <div class="h-80">
-          <canvas id="skillsChart"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 工作经验 -->
-  <section id="experience" class="py-20 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">工作经验</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          多年电商行业实战经验，服务过不同类型的品牌，积累了丰富的文案策划经验
-        </p>
-      </div>
-      
-      <div class="max-w-4xl mx-auto">
-        <!-- 经验时间线 -->
-        <div class="relative">
-          <!-- 中轴线 -->
-          <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:translate-x-px"></div>
-          
-          <!-- 经验1 -->
-          <div class="relative mb-12">
-            <div class="md:flex md:items-center">
-              <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right order-2 md:order-1">
-                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-2">2020.03 - 至今</span>
-                <h3 class="text-xl font-bold mb-1">资深电商文案策划</h3>
-                <p class="text-gray-500 mb-3">某知名电商平台</p>
-                <ul class="space-y-2 text-gray-600">
-                  <li>负责平台核心品类的文案策略制定与执行，年销售额提升35%</li>
-                  <li>主导618、双11等大型促销活动的全案文案策划，活动转化率提升42%</li>
-                  <li>建立文案效果评估体系，通过A/B测试优化文案，平均提升转化率25%</li>
-                  <li>培养5人文案团队，建立标准化文案创作流程</li>
-                </ul>
-              </div>
-              <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-white shadow-sm z-10 order-1 md:order-2"></div>
-              <div class="md:w-1/2 md:pl-12 hidden md:block order-3"></div>
-            </div>
+            <!-- 照片悬停效果装饰 -->
+            <div class="absolute -inset-1 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
           
-          <!-- 经验2 -->
-          <div class="relative mb-12">
-            <div class="md:flex md:items-center">
-              <div class="md:w-1/2 md:pr-12 hidden md:block order-1"></div>
-              <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-white shadow-sm z-10 order-2"></div>
-              <div class="md:w-1/2 md:pl-12 mb-6 md:mb-0 order-3">
-                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-2">2018.05 - 2020.02</span>
-                <h3 class="text-xl font-bold mb-1">电商文案策划</h3>
-                <p class="text-gray-500 mb-3">某知名美妆品牌</p>
-                <ul class="space-y-2 text-gray-600">
-                  <li>负责品牌天猫旗舰店、京东自营店的全店文案创作与优化</li>
-                  <li>撰写产品详情页文案300+，平均提升转化率18%</li>
-                  <li>策划"女神节"、"年中大促"等12场营销活动文案，活动期间销售额增长200%</li>
-                  <li>创作短视频脚本50+，累计播放量超500万</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 经验3 -->
-          <div class="relative">
-            <div class="md:flex md:items-center">
-              <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 md:text-right order-2 md:order-1">
-                <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-2">2017.06 - 2018.04</span>
-                <h3 class="text-xl font-bold mb-1">电商文案专员</h3>
-                <p class="text-gray-500 mb-3">某时尚服饰品牌</p>
-                <ul class="space-y-2 text-gray-600">
-                  <li>负责品牌电商渠道的日常文案撰写与更新</li>
-                  <li>优化产品标题与关键词，提升搜索排名，流量增长40%</li>
-                  <li>撰写社交媒体推广文案，粉丝增长150%</li>
-                  <li>参与季度新品上市的文案策划工作</li>
-                </ul>
-              </div>
-              <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-primary border-4 border-white shadow-sm z-10 order-1 md:order-2"></div>
-              <div class="md:w-1/2 md:pl-12 hidden md:block order-3"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 项目案例 -->
-  <section id="projects" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">成功案例</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          精选代表性项目案例，展示我的文案策划能力与成果
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- 案例1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="relative h-56 overflow-hidden">
-            <img src="https://picsum.photos/id/26/600/400" alt="美妆品牌618活动" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-              转化率提升42%
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">美妆品牌618全案策划</h3>
-            <p class="text-gray-600 mb-4">为某知名美妆品牌打造618大促全案文案，包含活动主题、页面文案、短视频脚本等。</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">活动策划</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">文案撰写</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">短视频脚本</span>
-            </div>
-            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-              查看详情 <i class="fa fa-arrow-right ml-2"></i>
-            </a>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">刘庆锦</h1>
+            <h2 class="text-xl md:text-2xl font-light opacity-90">电商文案策划专员</h2>
+            <p class="mt-4 max-w-2xl text-white/80 text-sm md:text-base">
+              4年电商文案策划经验，擅长将产品卖点转化为高转化文案，精通电商平台运营逻辑，曾助力3个品牌实现销售额翻倍
+            </p>
           </div>
         </div>
         
-        <!-- 案例2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="relative h-56 overflow-hidden">
-            <img src="https://picsum.photos/id/96/600/400" alt="家居产品详情页优化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-              转化率提升35%
-            </div>
+        <div class="flex flex-col items-end gap-2">
+          <div class="flex items-center gap-2">
+            <i class="fa fa-envelope-o"></i>
+            <span>linyue@example.com</span>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">家居产品详情页优化</h3>
-            <p class="text-gray-600 mb-4">对某家居品牌核心产品详情页进行全面优化，重新梳理卖点，重构文案逻辑。</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">详情页文案</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">A/B测试</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">数据分析</span>
-            </div>
-            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-              查看详情 <i class="fa fa-arrow-right ml-2"></i>
-            </a>
+          <div class="flex items-center gap-2">
+            <i class="fa fa-phone"></i>
+            <span>135-XXXX-XXXX</span>
           </div>
-        </div>
-        
-        <!-- 案例3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-          <div class="relative h-56 overflow-hidden">
-            <img src="https://picsum.photos/id/21/600/400" alt="新品牌上市策划" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
-              销售额破千万
-            </div>
+          <div class="flex items-center gap-2">
+            <i class="fa fa-map-marker"></i>
+            <span>杭州市</span>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">新品牌上市全案策划</h3>
-            <p class="text-gray-600 mb-4">为某新锐护肤品牌制定上市全案文案，包括品牌故事、产品命名、卖点提炼等。</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">品牌故事</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">产品命名</span>
-              <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">营销推广</span>
-            </div>
-            <a href="#" class="text-primary font-medium flex items-center hover:underline">
-              查看详情 <i class="fa fa-arrow-right ml-2"></i>
-            </a>
+          <div class="flex items-center gap-2 mt-1">
+            <i class="fa fa-github"></i>
+            <a href="#" class="underline hover:opacity-80 transition">github.com/linyue</a>
           </div>
         </div>
       </div>
-      
-      <div class="text-center mt-12">
-        <a href="#" class="inline-flex items-center px-6 py-3 bg-white border border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-custom">
-          查看更多案例 <i class="fa fa-long-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- 联系方式 -->
-  <section id="contact" class="py-20 bg-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">联系我</h2>
-        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-        <p class="text-gray-600 max-w-2xl mx-auto">
-          对我的工作经验和能力感兴趣？欢迎随时联系我，期待与您的合作
-        </p>
-      </div>
-      
-      <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          <div class="lg:col-span-2 bg-gray-50 rounded-xl p-8">
-            <h3 class="text-xl font-bold mb-6">联系方式</h3>
+    <!-- 主体内容 -->
+    <main class="p-6 md:p-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 左侧栏 -->
+        <div class="md:col-span-1 space-y-8">
+          <!-- 核心技能 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-pencil-square-o text-primary mr-2"></i>核心技能
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
             
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <i class="fa fa-phone text-primary"></i>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium">产品文案撰写</span>
+                  <span>95%</span>
                 </div>
-                <div>
-                  <h4 class="font-medium mb-1">电话</h4>
-                  <p class="text-gray-600">138-XXXX-XXXX</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <i class="fa fa-envelope-o text-primary"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium mb-1">邮箱</h4>
-                  <p class="text-gray-600">zhangming@example.com</p>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
                 </div>
               </div>
               
-              <div class="flex items-start">
-                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <i class="fa fa-map-marker text-primary"></i>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium">活动策划与执行</span>
+                  <span>90%</span>
                 </div>
-                <div>
-                  <h4 class="font-medium mb-1">所在地</h4>
-                  <p class="text-gray-600">上海市浦东新区</p>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
                 </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium">电商平台运营</span>
+                  <span>85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium">数据分析与优化</span>
+                  <span>80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="font-medium">短视频脚本创作</span>
+                  <span>75%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- 擅长文案类型 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-file-text-o text-primary mr-2"></i>擅长文案类型
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>产品详情页文案</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>电商平台活动文案</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>社交媒体推广文案</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>短视频/直播脚本</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>品牌故事与理念文案</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-check text-primary mr-2"></i>
+                <span>产品命名与卖点提炼</span>
+              </li>
+            </ul>
+          </section>
+          
+          <!-- 平台经验 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-shopping-bag text-primary mr-2"></i>平台经验
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-gray-50 p-3 rounded-lg text-center card-hover">
+                <i class="fa fa-cc-visa text-2xl mb-2 text-blue-600"></i>
+                <p class="text-sm">天猫/淘宝</p>
+                <p class="text-xs text-gray-500 mt-1">4年经验</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg text-center card-hover">
+                <i class="fa fa-cc-mastercard text-2xl mb-2 text-red-600"></i>
+                <p class="text-sm">京东</p>
+                <p class="text-xs text-gray-500 mt-1">3年经验</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg text-center card-hover">
+                <i class="fa fa-cc-paypal text-2xl mb-2 text-blue-400"></i>
+                <p class="text-sm">抖音电商</p>
+                <p class="text-xs text-gray-500 mt-1">2年经验</p>
+              </div>
+              
+              <div class="bg-gray-50 p-3 rounded-lg text-center card-hover">
+                <i class="fa fa-credit-card text-2xl mb-2 text-green-600"></i>
+                <p class="text-sm">小红书</p>
+                <p class="text-xs text-gray-500 mt-1">2年经验</p>
+              </div>
+            </div>
+          </section>
+          
+          <!-- 教育背景 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-graduation-cap text-primary mr-2"></i>教育背景
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <div>
+              <h4 class="font-bold">浙江传媒学院</h4>
+              <p class="text-gray-600">广告学 | 本科</p>
+              <p class="text-sm text-gray-500 mt-1">2015.09 - 2019.06</p>
+              <p class="mt-2 text-sm text-gray-700">
+                主修课程：广告文案写作、市场营销、消费者行为学、品牌策划
+              </p>
+              <p class="text-sm text-gray-700 mt-1">
+                曾获校级"优秀毕业设计"奖（电商文案方向）
+              </p>
+            </div>
+          </section>
+        </div>
+        
+        <!-- 右侧栏 -->
+        <div class="md:col-span-2 space-y-8">
+          <!-- 工作经验 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-briefcase text-primary mr-2"></i>工作经验
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <!-- 经验1 -->
+            <div class="mb-8 relative pl-6">
+              <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-primary"></div>
+              <div class="absolute left-[6px] top-4 bottom-0 w-[1px] bg-gray-200"></div>
+              
+              <div class="flex flex-wrap justify-between items-start mb-1">
+                <h4 class="font-bold text-lg">资深电商文案策划</h4>
+                <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">2020.05 - 至今</span>
+              </div>
+              
+              <h5 class="text-gray-600 mb-3">某知名美妆品牌电商部</h5>
+              
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>负责品牌天猫、京东旗舰店全平台文案策划，主导618、双11等大促活动文案，推动年销售额从800万增长至2300万</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>重构200+款产品详情页文案，平均提升转化率42%，其中3款产品进入类目TOP10</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>创立"用户痛点-产品解决方案"文案模型，被公司采纳为标准文案框架</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>与设计、运营团队协作，打造"成分党"系列内容营销活动，短视频播放量超500万，带动相关产品销量增长210%</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>培训5名新晋文案专员，建立品牌文案库与风格指南</span>
+                </li>
+              </ul>
+              
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">美妆护肤</span>
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">详情页优化</span>
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">团队管理</span>
               </div>
             </div>
             
-            <div class="mt-8">
-              <h4 class="font-medium mb-4">社交媒体</h4>
-              <div class="flex space-x-4">
-                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary hover:text-white text-primary rounded-full flex items-center justify-center transition-custom">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary hover:text-white text-primary rounded-full flex items-center justify-center transition-custom">
-                  <i class="fa fa-github"></i>
-                </a>
-                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary hover:text-white text-primary rounded-full flex items-center justify-center transition-custom">
-                  <i class="fa fa-weixin"></i>
-                </a>
-                <a href="#" class="w-10 h-10 bg-primary/10 hover:bg-primary hover:text-white text-primary rounded-full flex items-center justify-center transition-custom">
-                  <i class="fa fa-weibo"></i>
-                </a>
+            <!-- 经验2 -->
+            <div class="relative pl-6">
+              <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-primary"></div>
+              
+              <div class="flex flex-wrap justify-between items-start mb-1">
+                <h4 class="font-bold text-lg">电商文案专员</h4>
+                <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full">2019.07 - 2020.04</span>
+              </div>
+              
+              <h5 class="text-gray-600 mb-3">某时尚服饰电商公司</h5>
+              
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>负责服饰类目产品文案撰写，包括标题优化、详情页文案、卖点提炼等</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>参与策划"换季穿搭指南"系列专题，相关产品点击率提升35%，转化率提升28%</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>撰写社交媒体推广文案，协助店铺粉丝从5万增长至15万+</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fa fa-angle-right text-primary mt-1 mr-2"></i>
+                  <span>分析竞品文案策略，输出《服饰类目文案优化方案》，被采纳实施</span>
+                </li>
+              </ul>
+              
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">服饰类目</span>
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">社交媒体</span>
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">竞品分析</span>
               </div>
             </div>
-          </div>
+          </section>
           
-          <div class="lg:col-span-3 bg-gray-50 rounded-xl p-8">
-            <h3 class="text-xl font-bold mb-6">给我留言</h3>
+          <!-- 成功案例 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-trophy text-primary mr-2"></i>成功案例
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
             
-            <form>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
-                  <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="您的姓名">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <!-- 案例1 -->
+              <div class="bg-gray-50 p-4 rounded-lg card-hover">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-bold">美妆品牌双11全案</h4>
+                  <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">转化率+58%</span>
                 </div>
-                <div>
-                  <label for="email" class="block text-gray-700 font-medium mb-2">邮箱</label>
-                  <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="您的邮箱">
+                
+                <p class="text-xs text-gray-500 mb-3">2022年 | 项目负责人</p>
+                
+                <p class="text-sm text-gray-700 mb-3">
+                  为品牌双11活动打造"科学护肤，精准变美"主题文案，包含活动页面、产品详情页、短视频脚本等全渠道内容。
+                </p>
+                
+                <div class="mb-3">
+                  <p class="text-xs font-medium text-gray-600 mb-1">关键成果：</p>
+                  <ul class="text-xs text-gray-700 space-y-1">
+                    <li>• 活动总销售额突破800万，同比增长120%</li>
+                    <li>• 主推产品详情页转化率提升58%</li>
+                    <li>• 活动传播内容获得300万+曝光</li>
+                  </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">大促活动</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">全渠道</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">主题策划</span>
                 </div>
               </div>
               
-              <div class="mb-6">
-                <label for="subject" class="block text-gray-700 font-medium mb-2">主题</label>
-                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="留言主题">
+              <!-- 案例2 -->
+              <div class="bg-gray-50 p-4 rounded-lg card-hover">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-bold">详情页文案重构项目</h4>
+                  <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">转化率+42%</span>
+                </div>
+                
+                <p class="text-xs text-gray-500 mb-3">2021年 | 核心成员</p>
+                
+                <p class="text-sm text-gray-700 mb-3">
+                  对品牌30款核心产品详情页进行文案重构，采用"用户痛点-解决方案-效果见证"三段式结构。
+                </p>
+                
+                <div class="mb-3">
+                  <p class="text-xs font-medium text-gray-600 mb-1">关键成果：</p>
+                  <ul class="text-xs text-gray-700 space-y-1">
+                    <li>• 平均转化率提升42%，客单价提升25%</li>
+                    <li>• 建立品牌统一文案风格与标准模板</li>
+                    <li>• 降低产品退货率18%</li>
+                  </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">详情页</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">A/B测试</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">模板建立</span>
+                </div>
               </div>
               
-              <div class="mb-6">
-                <label for="message" class="block text-gray-700 font-medium mb-2">留言内容</label>
-                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-custom" placeholder="请输入您的留言内容..."></textarea>
+              <!-- 案例3 -->
+              <div class="bg-gray-50 p-4 rounded-lg card-hover">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-bold">新品上市推广文案</h4>
+                  <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">销量破百万</span>
+                </div>
+                
+                <p class="text-xs text-gray-500 mb-3">2023年 | 项目负责人</p>
+                
+                <p class="text-sm text-gray-700 mb-3">
+                  为品牌首款抗老精华打造完整推广文案体系，包括产品命名、核心卖点提炼、多平台推广内容。
+                </p>
+                
+                <div class="mb-3">
+                  <p class="text-xs font-medium text-gray-600 mb-1">关键成果：</p>
+                  <ul class="text-xs text-gray-700 space-y-1">
+                    <li>• 上市首月销量突破100万</li>
+                    <li>• 产品复购率达35%，远超行业平均</li>
+                    <li>• 获得"年度最佳新品文案"行业奖项</li>
+                  </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">新品上市</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">卖点提炼</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">全平台</span>
+                </div>
               </div>
               
-              <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-lg transition-custom shadow-lg shadow-primary/20">
-                发送留言
-              </button>
-            </form>
-          </div>
+              <!-- 案例4 -->
+              <div class="bg-gray-50 p-4 rounded-lg card-hover">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-bold">内容营销系列文案</h4>
+                  <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">曝光300万+</span>
+                </div>
+                
+                <p class="text-xs text-gray-500 mb-3">2021年 | 核心成员</p>
+                
+                <p class="text-sm text-gray-700 mb-3">
+                  策划"美妆成分科普"系列内容文案，通过通俗易懂的语言解读专业成分知识，建立品牌专业形象。
+                </p>
+                
+                <div class="mb-3">
+                  <p class="text-xs font-medium text-gray-600 mb-1">关键成果：</p>
+                  <ul class="text-xs text-gray-700 space-y-1">
+                    <li>• 系列内容总曝光300万+，互动量15万+</li>
+                    <li>• 品牌搜索量提升85%</li>
+                    <li>• 相关产品销量增长65%</li>
+                  </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">内容营销</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">科普文案</span>
+                  <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded">品牌建设</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- 专业成果 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-line-chart text-primary mr-2"></i>专业成果
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fa fa-file-text text-primary mr-2"></i>文案方法论
+                </h4>
+                <p class="text-sm text-gray-700">
+                  总结多年实战经验，创建"电商文案黄金公式"：用户痛点×产品价值×信任背书×行动指令，被公司内部采纳为标准创作框架。
+                </p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fa fa-trophy text-primary mr-2"></i>行业认可
+                </h4>
+                <p class="text-sm text-gray-700">
+                  2022年获"年度优秀电商文案策划"称号，主导的双11文案案例入选《电商文案经典案例集》。
+                </p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fa fa-users text-primary mr-2"></i>知识分享
+                </h4>
+                <p class="text-sm text-gray-700">
+                  在行业平台发表《高转化电商文案的7个秘诀》等10余篇专业文章，累计阅读量超50万，举办内部文案培训15场。
+                </p>
+              </div>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-bold mb-3 flex items-center">
+                  <i class="fa fa-lightbulb-o text-primary mr-2"></i>创新实践
+                </h4>
+                <p class="text-sm text-gray-700">
+                  率先在团队中引入AI辅助文案创作工具，结合人工优化，提升文案产出效率40%，同时保持转化率提升15%。
+                </p>
+              </div>
+            </div>
+          </section>
+          
+          <!-- 自我评价 -->
+          <section>
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i class="fa fa-user text-primary mr-2"></i>自我评价
+            </h3>
+            <div class="w-16 h-1 bg-primary mb-5"></div>
+            
+            <p class="text-gray-700 text-sm leading-relaxed mb-4">
+              4年电商文案策划经验，对美妆、服饰等类目有深入了解，擅长从用户视角出发，将专业卖点转化为消费者易懂且有说服力的语言。
+            </p>
+            
+            <p class="text-gray-700 text-sm leading-relaxed mb-4">
+              具备扎实的文案功底和数据分析能力，不仅能写出优质文案，还能通过数据反馈持续优化，实现"用文字驱动销售"的核心目标。
+            </p>
+            
+            <p class="text-gray-700 text-sm leading-relaxed">
+              工作中注重团队协作，能与设计、运营、产品等团队高效配合，共同达成业务目标。对电商行业有浓厚兴趣，持续关注行业动态和新趋势，不断学习提升专业能力。
+            </p>
+          </section>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 页脚 -->
-  <footer class="bg-dark text-white py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h3 class="text-xl font-bold mb-4">张明 | 电商文案策划专员</h3>
-        <p class="text-gray-400 mb-6 max-w-md mx-auto">
-          用文字创造价值，用策略驱动销售。期待与您携手，共创电商佳绩。
-        </p>
-        <div class="flex justify-center space-x-6 mb-8">
-          <a href="#about" class="text-gray-400 hover:text-white transition-custom">关于我</a>
-          <a href="#skills" class="text-gray-400 hover:text-white transition-custom">技能</a>
-          <a href="#experience" class="text-gray-400 hover:text-white transition-custom">经验</a>
-          <a href="#projects" class="text-gray-400 hover:text-white transition-custom">案例</a>
-          <a href="#contact" class="text-gray-400 hover:text-white transition-custom">联系我</a>
-        </div>
-        <p class="text-gray-500 text-sm">
-          &copy; 2023 张明 - 电商文案策划专员. 保留所有权利.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- 返回顶部按钮 -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50">
-    <i class="fa fa-arrow-up"></i>
-  </button>
+    </main>
+  </div>
 
   <script>
-    // 移动端菜单切换
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // 导航栏滚动效果
-    const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-md');
-        navbar.classList.remove('shadow-sm');
-      } else {
-        navbar.classList.remove('shadow-md');
-        navbar.classList.add('shadow-sm');
-      }
-    });
-    
-    // 平滑滚动
+    // 平滑滚动效果
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        // 关闭移动端菜单
-        mobileMenu.classList.add('hidden');
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
-    
-    // 返回顶部按钮
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.add('opacity-0', 'invisible');
-        backToTopButton.classList.remove('opacity-100', 'visible');
-      }
+
+    // 页面加载时的渐入效果
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('opacity-100');
+      document.body.classList.remove('opacity-0');
     });
-    
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // 技能图表
-    const ctx = document.getElementById('skillsChart').getContext('2d');
-    const skillsChart = new Chart(ctx, {
-      type: 'radar',
-      data: {
-        labels: [
-          '产品文案',
-          '活动策划',
-          '数据分析',
-          '用户洞察',
-          '短视频脚本',
-          '社交媒体文案'
-        ],
-        datasets: [{
-          label: '技能熟练度',
-          data: [90, 85, 80, 92, 78, 88],
-          backgroundColor: 'rgba(22, 93, 255, 0.2)',
-          borderColor: 'rgba(22, 93, 255, 1)',
-          pointBackgroundColor: 'rgba(22, 93, 255, 1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(22, 93, 255, 1)'
-        }]
-      },
-      options: {
-        scales: {
-          r: {
-            angleLines: {
-              display: true
-            },
-            suggestedMin: 0,
-            suggestedMax: 100
-          }
-        },
-        plugins: {
-          legend: {
-            display: false
-          }
-        }
-      }
-    });
-    
-    // 滚动动画
-    const animateOnScroll = () => {
-      const elements = document.querySelectorAll('.card-hover');
-      
-      elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementPosition < windowHeight - 100) {
-          element.style.opacity = '1';
-          element.style.transform = 'translateY(0)';
-        }
-      });
-    };
-    
-    // 初始化元素状态
-    document.querySelectorAll('.card-hover').forEach(element => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(20px)';
-      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-    
-    // 初始加载和滚动时执行动画
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
   </script>
 </body>
 </html>
